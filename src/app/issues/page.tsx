@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Table from '../components/Table'
 import Dropdown, { Status } from '../components/Dropdown'
+import Link from 'next/link'
 
 const Issues = () => {
   const [selectedStatus, setSelectedStatus] = useState<Status>()
@@ -21,8 +22,15 @@ const Issues = () => {
 
   return (
     <div className='p-4'>
-      <div className='py-4 px-6'>
+      <div className='py-4 px-6 flex justify-between'>
         <Dropdown onChangeStatus={(status) => setSelectedStatus(status)} />
+        <div className='place-self-center'>
+          <Link
+            href={'/issues/new'}
+            className='bg-purple-500 text-white p-2 rounded-md lg:text-base md:text-xl'>
+            New Issues
+          </Link>
+        </div>
       </div>
       <Table tableData={tableData} />
     </div>
