@@ -17,11 +17,7 @@ import TipTap from '@/app/components/Tiptap'
 
 const NewIssue = () => {
   const formSchema = z.object({
-    title: z
-      .string()
-      .min(5, { message: 'Hey title is not too long' })
-      .max(100, { message: 'Hey title is too long' })
-      .trim(),
+    title: z.string().min(25, { message: 'Hey title is not too long' }).trim(),
     description: z
       .string()
       .min(5, { message: 'Hey description is not too long' })
